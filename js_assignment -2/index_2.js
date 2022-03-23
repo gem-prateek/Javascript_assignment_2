@@ -38,10 +38,7 @@ form.addEventListener("click", function (e) {
       return false;
     }
   }
-  // if(email==""){
-  //     alert("email can not be Empty");
-  //     return false;
-  // }
+
   if (!email.match(mailformat)) {
     alert("Please enter vaild email");
     return false;
@@ -64,6 +61,7 @@ function storeValue(fname, lname, email, phone_no) {
   localStorage.setItem("lastname", lname);
   localStorage.setItem("email", email);
   localStorage.setItem("phone_no", phone_no);
+  showtable();
 }
 function showtable() {
   
@@ -79,21 +77,14 @@ function showtable() {
   console.log(data);
   var talbe = document.createElement("table");
   talbe.setAttribute("class","table table-striped table-dark w-auto");
-//   talbe.setAttribute(
-//     "style",
-//     " border: 2px solid black; padding: 5px; border-radius: 25px;"
-//   );
+
   basediv.appendChild(talbe);
   for (let i = 0; i < baseElements.length; i++) {
     let tr = document.createElement("tr");
-    //tr.setAttribute("style", "border: 1px solid black");
-
     let td1 = document.createElement("td");
-   // td1.setAttribute("style", "border: 2px solid black;padding: 5px");
     let text1 = document.createTextNode(baseElements[i]);
     td1.appendChild(text1);
     let td2 = document.createElement("td");
-    //td2.setAttribute("style", "border: 2px solid black;padding: 5px");
     let text2 = document.createTextNode(data[i]);
     td2.appendChild(text2);
     tr.appendChild(td1);
